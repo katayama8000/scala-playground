@@ -11,99 +11,99 @@ import service.PokemonService
 @main def hello(): Unit =
   println("Hello world!")
 
-  // 基本制御構造の例
+  // Examples of basic control structures
   showControlStructures()
 
-  // クラスとオブジェクトの例
+  // Examples of classes and objects
   showClassesAndObjects()
 
-  // トレイト（インターフェース）の例
+  // Examples of traits (interfaces)
   showTraitsExample()
 
-  // 列挙型の例
+  // Examples of enums
   showEnumExample()
 
-  // 非同期処理の例
+  // Examples of asynchronous processing
   fetchPokemonExample()
 
 def msg = "I was compiled by Scala 3. :)"
 
-// 基本制御構造の例
+// Examples of basic control structures
 def showControlStructures(): Unit =
-  println("\n=== 制御構造のデモ ===")
+  println("\n=== Control Structures Demo ===")
 
-  println("- for loop -")
+  println("- For Loop -")
   for i <- 1 to 5 do println(s"Counter: $i")
 
-  println("\n- if statement -")
+  println("\n- If Statement -")
   if (1 > 0) then println("1 is greater than 0")
   else println("1 is not greater than 0")
 
-  println("\n- match statement -")
+  println("\n- Match Statement -")
   val x = 1
   x match
     case 1 => println("x is 1")
     case 2 => println("x is 2")
     case _ => println("x is something else")
 
-  println("\n- while loop -")
+  println("\n- While Loop -")
   var i = 0
   while (i < 5) do
     println(s"i = $i")
     i += 1
 
-  println("\n- 関数呼び出し -")
+  println("\n- Function Calls -")
   println(s"add1(2, 3) = ${MathUtils.add1(2, 3)}")
   println(s"add2(2) = ${MathUtils.add2(2)}")
   println(s"add3(2, 3, 4, 5) = ${MathUtils.add3(2, 3, 4, 5)}")
   println(s"add4(2, z=10) = ${MathUtils.add4(2, z = 10)}")
 
-// クラスとオブジェクトの例
+// Examples of classes and objects
 def showClassesAndObjects(): Unit =
-  println("\n=== クラスとオブジェクトのデモ ===")
+  println("\n=== Classes and Objects Demo ===")
   val person = Person("John", 30)
   person.greet()
 
-  println("\n- Singleton object -")
+  println("\n- Singleton Object -")
   Singleton.greet()
 
-// トレイト（インターフェース）の例
+// Examples of traits (interfaces)
 def showTraitsExample(): Unit =
-  println("\n=== トレイトのデモ ===")
+  println("\n=== Traits Demo ===")
   val dog = Dog()
   val cat = Cat()
   println(s"Dog says: ${dog.sound()}")
   println(s"Cat says: ${cat.sound()}")
 
-// 列挙型の例
+// Examples of enums
 def showEnumExample(): Unit =
-  println("\n=== 列挙型のデモ ===")
+  println("\n=== Enum Demo ===")
   val color: Color = Color.Red
   println(s"Selected color: $color")
 
   color match
-    case Color.Red   => println("赤色が選択されました")
-    case Color.Green => println("緑色が選択されました")
-    case Color.Blue  => println("青色が選択されました")
+    case Color.Red   => println("Red color was selected")
+    case Color.Green => println("Green color was selected")
+    case Color.Blue  => println("Blue color was selected")
 
-// 非同期処理の例
+// Examples of asynchronous processing
 def fetchPokemonExample(): Unit =
-  println("\n=== 非同期処理のデモ ===")
-  println("ポケモンAPIからデータをフェッチします...")
+  println("\n=== Asynchronous Processing Demo ===")
+  println("Fetching data from Pokemon API...")
 
   val pokemonService = PokemonService()
   val futureData = pokemonService.fetchPokemonData(1)
 
-  println("Future オブジェクト: " + futureData)
+  println("Future object: " + futureData)
 
-  println("Await.result を使用してデータを待機します...")
+  println("Waiting for data using Await.result...")
   try {
     val result = Await.result(futureData, 5.seconds)
-    println("--- 取得したデータ (短縮表示) ---")
-    // 結果が長すぎるため、一部だけ表示
+    println("--- Retrieved Data (truncated) ---")
+    // Only showing part of the result as it's too long
     println(result.take(500) + "...")
   } catch {
     case e: Exception =>
-      println(s"エラーが発生しました: ${e.getMessage}")
+      println(s"An error occurred: ${e.getMessage}")
   }
-  println("処理完了!")
+  println("Processing complete!")
