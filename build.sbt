@@ -10,6 +10,7 @@ lazy val root = project
     libraryDependencies ++= Seq(
       "io.circe" %% "circe-core" % "0.14.6",
       "io.circe" %% "circe-generic" % "0.14.6",
-      "io.circe" %% "circe-parser" % "0.14.6"
+      "io.circe" %% "circe-parser" % "0.14.6",
+      "org.xerial" % "sqlite-jdbc" % "3.45.2.0"
     )
   )
