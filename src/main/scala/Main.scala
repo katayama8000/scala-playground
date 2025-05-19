@@ -3,8 +3,8 @@ import examples.{
   ClassesAndObjectsExample,
   TraitsExample,
   EnumExample,
-  DatabaseExample,
-  AsyncExample
+  AsyncExample,
+  FunctionsExample
 }
 
 @main def hello(): Unit =
@@ -17,22 +17,25 @@ def msg = "I was compiled by Scala 3. :)"
 def runAllExamples(): Unit =
   println("\n--- Running Scala Examples ---")
 
-  // Examples of basic control structures
-  ControlStructuresExample.show()
+  // // Examples of basic control structures
+  // ControlStructuresExample.show()
 
-  // Examples of classes and objects
-  ClassesAndObjectsExample.show()
+  // // Examples of classes and objects
+  // ClassesAndObjectsExample.show()
 
-  // Examples of traits (interfaces)
-  TraitsExample.show()
+  // // Examples of traits (interfaces)
+  // TraitsExample.show()
 
-  // Examples of enums
-  EnumExample.show()
+  // // Examples of enums
+  // EnumExample.show()
 
-  // Examples of SQLite database operations
-  DatabaseExample.show()
+  // // Examples of SQLite database operations
+  // DatabaseExample.show()
 
-  // Examples of asynchronous processing
-  AsyncExample.show()
+  // // Examples of asynchronous processing
+  // AsyncExample.show()
+
+  // Examples of functions
+  FunctionsExample.show()
 
   println("\n--- All examples completed ---")
