@@ -37,5 +37,6 @@ def runAllExamples(): Unit =
 
   // Examples of functions
   FunctionsExample.show()
+  FunctionsExample.composedSafeFunction(1, 1);
 
   println("\n--- All examples completed ---")
