@@ -97,4 +97,43 @@ object FunctionsExample {
     } yield result
   }
 
+  type ComposedResult = Try[Int]
+  // piplelineを使った関数の合成
+  def pipelineFunction(x: Int, y: Int): ComposedResult = {
+    safeAdd(x, y)
+      .flatMap(sum => safeSubtract(sum, 1))
+      .flatMap(diff => safeMultiply(diff, 2))
+      .flatMap(product => safeDivideTry(product, 3))
+  }
+
+  type UnpaidInvoice = String
+  type Payment = Double
+  type PaidInvoice = String
+  type PaymentError = String
+  type PayInvoice =
+    UnpaidInvoice => Payment => Either[PaymentError, PaidInvoice]
+
+  def payInvoice(
+      invoice: UnpaidInvoice,
+      payment: Payment
+  ): Either[PaymentError, PaidInvoice] = {
+    if (payment > 0) Right(s"Paid $invoice with $payment")
+    else Left("Payment must be greater than zero")
+  }
+  def payInvoiceFunction: PayInvoice = { invoice => payment =>
+    payInvoice(invoice, payment)
+  }
+  def showPayInvoiceExample(): Unit = {
+    val unpaidInvoice: UnpaidInvoice = "INV-12345"
+    val payment: Payment = 100.0
+
+    val result: Either[PaymentError, PaidInvoice] =
+      payInvoiceFunction(unpaidInvoice)(payment)
+
+    result match {
+      case Right(paidInvoice) => println(s"Success: $paidInvoice")
+      case Left(error)        => println(s"Error: $error")
+    }
+  }
+
 }
