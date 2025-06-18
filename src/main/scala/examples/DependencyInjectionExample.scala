@@ -18,3 +18,18 @@ object DependencyInjectionExample extends App {
   val client = new Client(service)
   println(client.sayHello("Scala"))
 }
+
+// DI しない場合の例
+class NoDIService {
+  def greet(name: String): String = s"Hello, $name!"
+}
+
+class NoDIClient {
+  private val service = new NoDIService
+  def sayHello(name: String): String = service.greet(name)
+}
+
+object NoDependencyInjectionExample extends App {
+  val client = new NoDIClient
+  println(client.sayHello("Scala"))
+}

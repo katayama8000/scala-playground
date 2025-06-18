@@ -90,4 +90,29 @@ class DependencyInjectionExampleTest extends FunSuite {
       assert(result.endsWith("!"))
     }
   }
+
+  test("DI pattern supports easy testing with mocks") {
+    // DIパターンではモックを使ったテストが簡単
+    val mockService = new MockService("Test")
+    val client = new Client(mockService)
+    val result = client.sayHello("DI")
+
+    assertEquals(result, "Test, DI!")
+    assert(result.contains("DI"))
+  }
+
+  test("DI pattern enables loose coupling") {
+    // DIパターンは疎結合を実現
+    val service1 = new MockService("Morning")
+    val service2 = new MockService("Evening")
+
+    val client1 = new Client(service1)
+    val client2 = new Client(service2)
+
+    assertEquals(client1.sayHello("User"), "Morning, User!")
+    assertEquals(client2.sayHello("User"), "Evening, User!")
+
+    // 同じクライアントクラスでも異なるサービス実装で異なる結果
+    assert(client1.sayHello("Test") != client2.sayHello("Test"))
+  }
 }
