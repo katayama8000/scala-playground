@@ -1,0 +1,3 @@
+```bash
+sbt "runMain tutorial.{}"
+```
