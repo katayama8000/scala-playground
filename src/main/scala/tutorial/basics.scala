@@ -7,7 +7,7 @@ object Basics {
     println(addThenMultiply(2, 3)(4))// Example usage of addThenMultiply
     val greeter = new Greeter("Hello", "!")
     println(greeter.greet("World")) // Example usage of Greeter
-    val point = Point(1, 2)
+    val point = Point(1, 3)
     println(s"Point coordinates: (${point.x}, ${point.y})") // Example usage
   }
 
