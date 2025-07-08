@@ -7,7 +7,7 @@ import examples.{
   FunctionsExample
 }
 
-@main def hello(): Unit =
+@main def runExample(): Unit =
   println("Hello world!")
   runAllExamples()
 
@@ -36,7 +36,10 @@ def runAllExamples(): Unit =
   // AsyncExample.show()
 
   // Examples of functions
-  FunctionsExample.show()
-  FunctionsExample.composedSafeFunction(1, 1);
+  //  FunctionsExample.show()
+  //  FunctionsExample.composedSafeFunction(1, 1);
+
+  // Basic Scala examples
+  examples.BasicScala.run()
 
   println("\n--- All examples completed ---")
