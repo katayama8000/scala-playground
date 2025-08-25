@@ -98,10 +98,20 @@ object BasicScala:
     class PublicClass(val value: String)
     val publicInstance = new PublicClass("Hello, Public!")
 
+    val book = Book("Scala Programming")
+    val book2 = Book.create("Advanced Scala")
 
+case class BookId(value: Long)
+object BookId {
+  def generate(): BookId = BookId(scala.util.Random.nextLong().abs % 10000)
+}
 
+case class Book(id: BookId, title: String)
 
-
+object Book {
+  def apply(title: String): Book = new Book(BookId.generate(), title)
+  def create(title: String): Book = new Book(BookId.generate(), title)
+}
 
 
 
