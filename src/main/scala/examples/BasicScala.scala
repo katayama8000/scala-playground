@@ -82,6 +82,21 @@ object BasicScala:
     println(s"成功例: $successResult") // 出力: 成功例: Some(LoginInfo(suzuki,pass1234))
     println(s"失敗例: $failureResult") // 出力: 失敗例: None
 
+    // private class
+    class PrivateClass private (val value: String)
+
+    // class with companion object to create instance
+    object PrivateClass:
+      def create(value: String): PrivateClass = new PrivateClass(value)
+      def apply(value: String): PrivateClass = new PrivateClass(value)
+
+    val privateInstance = PrivateClass.create("Hello, Private!")
+    println(privateInstance.value)
+    val privateInstance2 = PrivateClass("Hello, Apply!")
+
+    // not private class
+    class PublicClass(val value: String)
+    val publicInstance = new PublicClass("Hello, Public!")
 
 
 
