@@ -48,6 +48,12 @@ object BasicScala:
 
     val colors = Map("red" -> 1, "green" -> 2, "blue" -> 3)
 
+    // new DecimalFormat
+    import java.text.DecimalFormat
+    val format = new DecimalFormat("#.##############")
+    val formattedNumber = format.format(0.9149999999999999)
+    println(s"Formatted number: $formattedNumber")
+
     // 1. データを格納するための箱（ケースクラス）を定義
     case class LoginInfo(username: String, password: String)
 
