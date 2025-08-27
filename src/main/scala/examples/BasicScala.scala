@@ -54,6 +54,15 @@ object BasicScala:
     val formattedNumber = format.format(0.9149999999999999)
     println(s"Formatted number: $formattedNumber")
 
+    val format2 = new DecimalFormat("#.##")
+    val formattedNumber2 = format2.format(0.9149)
+    println(s"Formatted number 2: $formattedNumber2")
+
+    val format3 = new DecimalFormat("#.##############")
+    val formattedNumber3 = format3.format(0.914999999999)
+    println(s"Formatted number 3: $formattedNumber3")
+
+
     // 1. データを格納するための箱（ケースクラス）を定義
     case class LoginInfo(username: String, password: String)
 
