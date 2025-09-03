@@ -40,6 +40,9 @@ def runAllExamples(): Unit =
   //  FunctionsExample.composedSafeFunction(1, 1);
 
   // Basic Scala examples
-  examples.BasicScala.run()
+  //  examples.BasicScala.run()
+
+  // sample DecimalFormat
+  examples.SampleDecimalFormat.show()
 
   println("\n--- All examples completed ---")
