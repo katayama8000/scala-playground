@@ -31,6 +31,15 @@ object SampleDecimalFormat {
     val Digit13 = 0.9149999999999
     val formattedNumber13 = format.format(Digit13)
     println(s"Formatted 13 digits number: $formattedNumber13")
-  }
 
+
+    val Digit14_1 = 0.9149999999999999
+    val Digit14_2 = 1.1234333333333333
+    val formattedDigit14_1 = format.format(Digit14_1)
+    val formattedDigit14_2 = format.format(Digit14_2)
+    println(s"Formatted 14 digits number 1: $formattedDigit14_1")
+    // 0.915
+    println(s"Formatted 14 digits number 2: $formattedDigit14_2")
+    // 1.12343333333333
+  }
 }
