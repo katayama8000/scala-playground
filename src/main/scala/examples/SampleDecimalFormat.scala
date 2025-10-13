@@ -1,6 +1,7 @@
 package examples
 
 import java.text.DecimalFormat
+import java.math.BigDecimal
 
 object SampleDecimalFormat {
   def show(): Unit = {
@@ -32,7 +33,6 @@ object SampleDecimalFormat {
     val formattedNumber13 = format.format(Digit13)
     println(s"Formatted 13 digits number: $formattedNumber13")
 
-
     val Digit14_1 = 0.9149999999999999
     val Digit14_2 = 1.1234333333333333
     val formattedDigit14_1 = format.format(Digit14_1)
@@ -41,5 +41,24 @@ object SampleDecimalFormat {
     // 0.915
     println(s"Formatted 14 digits number 2: $formattedDigit14_2")
     // 1.12343333333333
+
+    val str = "0.9149999999999999"
+    val Digit14_3 = new java.math.BigDecimal(str)
+    val format_1 = new DecimalFormat("#.##############")
+    val formattedDigit14_3 = format_1.format(Digit14_1)
+    println(s"show me: $formattedDigit14_1")
+
+    val Digit14_1_BigDecimal = new BigDecimal("0.9149999999999999")
+    val format_2 = new DecimalFormat("#.##############")
+    val formatted_BigDecimal = format_2.format(Digit14_1_BigDecimal)
+    println(
+      s"Formatted number with BigDecimal from String: $formatted_BigDecimal"
+    )
+
+    // Double -> String
+    val doubleValue: Double = 0.9149999999999999
+    val stringValue: String = doubleValue.toString
+    println(s"Double to String: $stringValue")
+
   }
 }

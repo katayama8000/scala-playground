@@ -62,16 +62,16 @@ object BasicScala:
     val formattedNumber3 = format3.format(0.914999999999)
     println(s"Formatted number 3: $formattedNumber3")
 
-
     // 1. データを格納するための箱（ケースクラス）を定義
     case class LoginInfo(username: String, password: String)
 
-    /**
-     * Map形式のデータからLoginInfoオブジェクトを作成する関数
-     *
-     * @param data ユーザー名とパスワードを含むMap
-     * @return キーが存在すればSome(LoginInfo), 存在しなければNone
-     */
+    /** Map形式のデータからLoginInfoオブジェクトを作成する関数
+      *
+      * @param data
+      *   ユーザー名とパスワードを含むMap
+      * @return
+      *   キーが存在すればSome(LoginInfo), 存在しなければNone
+      */
     def createLoginInfoFromMap(data: Map[String, String]): Option[LoginInfo] = {
 
       // 2. Mapからキーを指定して値を取得する
@@ -127,12 +127,3 @@ object Book {
   def apply(title: String): Book = new Book(BookId.generate(), title)
   def create(title: String): Book = new Book(BookId.generate(), title)
 }
-
-
-
-
-
-
-
-
-

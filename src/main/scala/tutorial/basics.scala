@@ -1,10 +1,10 @@
 package tutorial
 
 object Basics {
-  
+
   def main(args: Array[String]): Unit = {
     println("Hello from Basics!")
-    println(addThenMultiply(2, 3)(4))// Example usage of addThenMultiply
+    println(addThenMultiply(2, 3)(4)) // Example usage of addThenMultiply
     val greeter = new Greeter("Hello", "!")
     println(greeter.greet("World")) // Example usage of Greeter
     val point = Point(1, 3)
@@ -16,11 +16,11 @@ object Basics {
     sum * multiplier
   }
 
-  class Greeter(prefix:String, suffix:String) {
+  class Greeter(prefix: String, suffix: String) {
     def greet(name: String): String = s"$prefix, $name$suffix"
   }
 
-  case class Point(x:Int,y:Int)
+  case class Point(x: Int, y: Int)
 
   object IdFactory {
     private var currentId = 0
@@ -30,7 +30,7 @@ object Basics {
     }
   }
 
-  trait GreeterTrait{
+  trait GreeterTrait {
     def greet(name: String): String
   }
 
