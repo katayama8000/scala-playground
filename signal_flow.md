@@ -1,11 +1,11 @@
-# SignalMain.scala Flowchart
+# Flowchart
 
 This document describes the flow of the `SignalMain.scala` script, which simulates the Signal Protocol's key update logic.
 
 ```mermaid
 graph TD
     A[main: 開始] --> B(初期状態の `SignalSession` を作成);
-    B --> C{"sendMessage(\"メッセージ1\") を呼び出す"};
+    B --> C{"sendMessage('メッセージ1') を呼び出す"};
 
     subgraph "sendMessage の内部処理"
         C_IN[メッセージ受信] --> D(1. 新しい一時的なDH鍵ペアを生成);
@@ -18,7 +18,7 @@ graph TD
 
     C --> I;
     I --> J(返された新しい `SignalSession` で状態を更新);
-    J --> K{"sendMessage(\"メッセージ2\") を呼び出す"};
+    J --> K{"sendMessage('メッセージ2') を呼び出す"};
     K --> L(以下、メッセージごとに同じ処理を繰り返す...);
     L --> M[main: 終了];
 
@@ -27,6 +27,4 @@ graph TD
     style G fill:#ccf,stroke:#333,stroke-width:2px
     
     footnote "¹ KDF (Key Derivation Function): 鍵導出関数。このコードでは `hkdf` 関数がシミュレートしています。";
-```
-
 ```
