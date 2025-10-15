@@ -37,4 +37,43 @@ object Basics {
   class SimpleGreeter extends GreeterTrait {
     def greet(name: String): String = s"Hello, $name!"
   }
+
+  // sample of mixing in traits
+  trait Logger {
+    def log(message: String): Unit = println(s"LOG: $message")
+  }
+
+  trait databaseService {
+    def save(data: String): Unit = println(s"Saving data: $data")
+  }
+
+  class UserService extends databaseService with Logger {
+    def createUser(name: String): Unit = {
+      log(s"Creating user: $name")
+      save(name)
+    }
+  }
+
+  val service = new UserService()
+  service.createUser("Alice")
+
+  // sample of implicits
+  implicit class IntOps(x: Int) {
+    def isEven: Boolean = x % 2 == 0
+    def isOdd: Boolean = x % 2 != 0
+  }
+
+  private def checkEvenOdd(n: Int): Unit = {
+    if (n.isEven) println(s"$n is even")
+    else println(s"$n is odd")
+  }
+
+  checkEvenOdd(3)
+
+  // sample of implicit with functions
+  implicit val defaultMultiplier: Int = 2
+  def multiplyWithDefault(x: Int)(implicit multiplier: Int): Int =
+    x * multiplier
+  println(multiplyWithDefault(5)) // Uses implicit multiplier
+
 }
